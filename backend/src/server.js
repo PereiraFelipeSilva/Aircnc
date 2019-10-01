@@ -1,9 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const mongooseConnect = require('./mongooseConnect');
+const routes = require('./routes');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  return res.json({ message: "Hello World" });
-})
+mongoose.connect(mongooseConnect, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333);
