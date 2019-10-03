@@ -9,6 +9,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import api from '../../services/api';
+
 import styles from './styles';
 
 import logo from '../../assets/logo.png';
