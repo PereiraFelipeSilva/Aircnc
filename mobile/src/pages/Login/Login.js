@@ -13,12 +13,11 @@ import {
 import api from '../../services/api';
 
 import styles from './styles';
-
 import logo from '../../assets/logo.png';
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
-  const [techs, setTech] = useState('');
+  const [technologies, setTechnologies] = useState('');
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user => {
@@ -35,7 +34,7 @@ export default function Login({ navigation }) {
     const { _id } = response.data;
 
     await AsyncStorage.setItem('user', _id);
-    await AsyncStorage.setItem('techs', techs);
+    await AsyncStorage.setItem('technologies', technologies);
 
     navigation.navigate('List');
   }
@@ -68,8 +67,8 @@ export default function Login({ navigation }) {
           placeholderTextColor='#999'
           autoCapitalize='words'
           autoCorrect={false}
-          value={techs}
-          onChangeText={setTech}
+          value={technologies}
+          onChangeText={setTechnologies}
         />
 
         <TouchableOpacity onPress={handleSubmit} style={styles.button} >
