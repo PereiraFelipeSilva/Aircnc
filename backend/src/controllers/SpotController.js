@@ -4,7 +4,7 @@ const User = require('../models/User');
 module.exports = {
   async index(req, res) {
     const { technology } = req.query;
-    
+
     const spots = await Spot.find({ technologies: technology });
 
     return res.json(spots);
@@ -25,7 +25,7 @@ module.exports = {
       user: user_id,
       thumbnail: filename,
       company,
-      technologies: technologies.split(',').map(tech => tech.trim()),
+      technologies: technologies.split(',').map(tech => tech.trim().toUpperCase()),
       price
     });
 
