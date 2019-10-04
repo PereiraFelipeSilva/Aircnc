@@ -34,7 +34,7 @@ export default function Login({ navigation }) {
     const { _id } = response.data;
 
     await AsyncStorage.setItem('user', _id);
-    await AsyncStorage.setItem('technologies', technologies);
+    await AsyncStorage.setItem('technologies', technologies.toUpperCase());
 
     navigation.navigate('List');
   }
