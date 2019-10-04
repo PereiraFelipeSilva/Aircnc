@@ -35,8 +35,6 @@ export default function List({ navigation }) {
 
       <ScrollView>
         {technologies.map(technology => {
-          console.log(technologies);
-          console.log(technology);
           return (
             <SpotList key={technology} technology={technology} />
           );
